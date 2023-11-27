@@ -16,6 +16,8 @@
 [Unit]
 Description=COVESA DLT logging daemon
 Documentation=man:dlt-daemon(1) man:dlt.conf(5)
+DefaultDependencies=no
+After=tmp.mount
 
 [Service]
 Type=simple
@@ -24,6 +26,3 @@ ExecStart=@CMAKE_INSTALL_PREFIX@/bin/dlt-daemon
 WatchdogSec=@DLT_WatchdogSec@
 NotifyAccess=main
 LimitCORE=infinity
-
-[Install]
-WantedBy=basic.target
